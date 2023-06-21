@@ -15,7 +15,18 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
+.bgborder {
+  border-top-left-radius: 500px;
+  border-bottom-left-radius: 500px;
+}
+.bghome {
+  background: rgb(45, 253, 176);
+  background: linear-gradient(
+    0deg,
+    rgba(45, 253, 176, 1) 0%,
+    rgba(34, 193, 195, 1) 100%
+  );
+}
 .radiante {
   background: rgb(2, 0, 36);
   background: -moz-linear-gradient(
@@ -50,6 +61,28 @@ main {
   min-height: 100vh;
   min-height: 100dvh;
 }
+input {
+  margin: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+}
+
+button {
+  margin: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  background-color: rgb(57, 115, 240) !important;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+button:hover {
+  background-color: rgb(9, 9, 175) !important;
+}
+
 @media (max-width: 640px) {
   main {
     padding-left: 1rem;

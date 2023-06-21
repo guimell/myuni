@@ -1,6 +1,9 @@
 import TopNav from "@/components/topNav";
 import "../styles/globals.css";
 import { Inter, Nunito } from "next/font/google";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import FirebaseConfig from "@/services/firebase";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -14,12 +17,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  FirebaseConfig.init();
   return (
     <html lang="en">
-      <body className={nunito.className}>
-        <TopNav />
-        {children}
-      </body>
+      <body className={nunito.className}>{children}</body>
     </html>
   );
 }
