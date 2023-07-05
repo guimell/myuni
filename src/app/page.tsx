@@ -5,6 +5,8 @@ import { getDocs, query, where } from "firebase/firestore";
 import { FormEvent, useEffect, useState } from "react";
 import { User } from "./matriz/[id]/page";
 import { useRouter } from "next/navigation";
+import { LoadingIcon } from "@/components/utility/svg";
+import Link from "next/link";
 
 export default function Home() {
   const router = useRouter();
@@ -50,13 +52,14 @@ export default function Home() {
   return (
     <main className="p-0">
       <dialog className="p-10 rounded-xl shadow-lg" open={isLoading}>
-        ...LOADING... (or maybe a spin icon...)
+        <div className="flex flex-col justify-center item gap-4">
+          {LoadingIcon}
+          <p className="font-bold">LOADING... </p>
+        </div>
       </dialog>
 
       <div className="flex flex-row w-full h-full bghome ">
-        <div className="flex w-1/2 h-screen bghome text-white justify-center items-center ">
-          Image
-        </div>
+        <div className="flex w-1/2 h-screen bghome text-white justify-center items-center "></div>
         <div className="flex flex-col w-1/2 h-screen  justify-center items-center bg-white bgborder">
           <div className="w-64">
             <h1 className="mb-2 font-bold text-lg text-gray-500">
@@ -79,14 +82,22 @@ export default function Home() {
                 />
                 <button type="submit">ENTRAR</button>
 
-                <div className="flex flex-row ">
-                  <p className="text-blue-500 text-xs">Esqueci minha senha</p>
-                  <p className="text-blue-500 text-xs ml-1 mr-1">|</p>
-                  <p className="text-blue-500 text-xs"> Pré matricula</p>
-                  <p className="text-blue-500 text-xs ml-1 mr-1">|</p>
-                  <p className="text-blue-500 text-xs">Ex-aluno</p>
+                <div className="flex flex-row py-2 ">
+                  <p className="text-blue-500 text-xs hover:underline cursor-pointer">
+                    Esqueci minha senha
+                  </p>
+                  <p className="text-blue-500 text-xs pl-1 pr-1 ">|</p>
+                  <Link href={"/signup"}>
+                    <p className="text-blue-500 text-xs hover:underline cursor-pointer">
+                      Pré matricula
+                    </p>
+                  </Link>
+                  <p className="text-blue-500 text-xs pl-1 pr-1 ">|</p>
+                  <p className="text-blue-500 text-xs hover:underline cursor-pointer">
+                    Ex-aluno
+                  </p>
                 </div>
-                <p className="text-blue-700 font-bold text-xs m-1 ">
+                <p className="text-blue-700 font-bold text-xs p-1 ">
                   PRECISA DE AJUDA? ACESSE NOSSA FAQ
                 </p>
               </form>

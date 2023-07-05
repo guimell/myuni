@@ -1,6 +1,8 @@
 "use client";
 import FirebaseConfig, { _collection, _doc } from "@/services/firebase";
 import { doc, getDocs, query, setDoc, where } from "firebase/firestore";
+import Link from "next/link";
+import router, { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
 
 export default function SignUp() {
@@ -92,6 +94,11 @@ export default function SignUp() {
             send
           </button>
         </form>
+      </div>
+      <div className="py-10">
+        <Link href={"/"}>
+          <button>Voltar para pagina inicial</button>
+        </Link>
       </div>
     </main>
   );
