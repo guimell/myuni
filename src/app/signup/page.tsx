@@ -10,6 +10,7 @@ export default function SignUp() {
   const [ra, setRa] = useState("");
   const [curso, setCurso] = useState("");
   const [turno, setTurno] = useState("");
+  const [periodo, setPeriodo] = useState("");
   const [password, setPassword] = useState("");
 
   function isInputsGood(): boolean {
@@ -18,6 +19,7 @@ export default function SignUp() {
     if (ra === "") isGood = false;
     if (curso === "") isGood = false;
     if (turno === "") isGood = false;
+    if (periodo === "") isGood = false;
     if (password === "") isGood = false;
     if (!isGood) alert("BAD INPUT");
     return isGood;
@@ -25,7 +27,7 @@ export default function SignUp() {
 
   async function creatUser(event: FormEvent) {
     event.preventDefault();
-    console.log("creating user", name, ra, curso, turno, password);
+    console.log("creating user", name, ra, curso, turno, periodo, password);
     console.log(FirebaseConfig.db);
 
     //check name and password
@@ -49,6 +51,7 @@ export default function SignUp() {
       ra: ra,
       curso: curso,
       turno: turno,
+      periodo: periodo,
       password: password,
     });
   }
@@ -80,6 +83,12 @@ export default function SignUp() {
             type="text"
             placeholder="Turno:"
             value={turno}
+          />
+          <input
+            onChange={(event) => setPeriodo(event.target.value)}
+            type="text"
+            placeholder="Periodo:"
+            value={periodo}
           />
           <input
             onChange={(event) => setPassword(event.target.value)}

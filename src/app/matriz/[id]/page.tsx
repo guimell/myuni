@@ -9,6 +9,7 @@ export type User = {
   password: string;
   ra: string;
   turno: string;
+  periodo: string;
 };
 
 function capitalizeFirstLetters(str: string): string {
@@ -34,30 +35,38 @@ export default async function Matriz({ params }: { params: { id: string } }) {
     );
   }
   const upperName = capitalizeFirstLetters(user?.name);
+  const curso = capitalizeFirstLetters(user?.curso);
+  const Turno = capitalizeFirstLetters(user?.turno);
   return (
     <>
       <TopNav />
-      <div className="flex radiante h-28 items-center justify-between text-white">
-        <div className="m-3">
+      <div className="flex radiante h-32 items-center justify-between text-white">
+        <div className="p-3">
           <p className="text-xs md:text-base">MY UNIVERSIDADE</p>
         </div>
-        <div className="flex flex-row m-3 text-right md:text-left justify-center items-center">
-          <div className="flex flex-col m-3">
+        <div className="flex flex-row p-3 text-right justify-center items-center">
+          <div className="flex flex-col p-0 sm:p-3">
             <h1 className="font-bold text-xs md:text-base">{upperName}</h1>
-            <p className="text-xs md:text-base">
-              <span className="font-bold text-xs md:text-base">RA:</span>
+            <p className="text-xs md:text-sm">
+              <span className="font-bold text-xs md:text-sm">RA: </span>
               {user?.ra}
             </p>
-            <p className="text-xs md:text-base">
-              <span className="font-bold text-xs md:text-base">Curso:</span>{" "}
-              {user?.curso}
+            <p className="text-xs md:text-sm">
+              <span className="font-bold text-xs md:text-sm">Curso: </span>
+              {curso}
             </p>
-            <p className="text-xs md:text-base">
-              <span className="font-bold text-xs md:text-base">Turno:</span>{" "}
-              {user?.turno}
-            </p>
+            <div className="flex flex-row w-full  justify-end">
+              <p className="text-xs md:text-sm">
+                <span className="font-bold text-xs md:text-sm">Turno: </span>
+                {Turno} &nbsp;
+              </p>
+              <p className="text-xs md:text-sm">
+                <span className="font-bold text-xs md:text-sm">Periodo: </span>
+                {user?.periodo}
+              </p>
+            </div>
           </div>
-          <div className="hidden  md:flex justify-center items-center bg-slate-300 border rounded-full h-20 w-20 ">
+          <div className="hidden md:flex justify-center items-center bg-slate-300 border rounded-full h-20 w-20 ">
             {Perfil}
           </div>
         </div>

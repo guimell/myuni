@@ -5,7 +5,15 @@ import { getDocs, query, where } from "firebase/firestore";
 import { FormEvent, useEffect, useState } from "react";
 import { User } from "./matriz/[id]/page";
 import { useRouter } from "next/navigation";
-import { LoadingIcon } from "@/components/utility/svg";
+import {
+  ArrowsLeftRight,
+  Barcode,
+  Book,
+  BriefCase,
+  GraduationCap,
+  LoadingIcon,
+  Notes,
+} from "@/components/utility/svg";
 import Link from "next/link";
 
 export default function Home() {
@@ -59,12 +67,38 @@ export default function Home() {
       </dialog>
 
       <div className="flex flex-row w-full h-full bghome ">
-        <div className="flex w-1/2 h-screen bghome text-white justify-center items-center "></div>
-        <div className="flex flex-col w-1/2 h-screen  justify-center items-center bg-white bgborder">
-          <div className="w-64">
+        <div className="hidden md:flex w-1/2 h-screen bghome text-white justify-center items-center "></div>
+        <div className="flex flex-col w-full md:w-1/2 h-screen  justify-center items-center bg-white bgborder">
+          <div className="flex flex-col w-64 justify-center items-center">
             <h1 className="mb-2 font-bold text-lg text-gray-500">
               MYUNI: sua vida academica em um só lugar
             </h1>
+            <div className="grid grid-cols-3 grid-rows-2 gap-3 py-4">
+              <div className="flex flex-col justify-center items-center p-2">
+                {ArrowsLeftRight}
+                <p className="text-gray-400 text-xs">Rematricula</p>
+              </div>
+              <div className="flex flex-col justify-center items-center ">
+                {Notes}
+                <p className="text-gray-400 text-xs">Notas e Faltas</p>
+              </div>
+              <div className="flex flex-col justify-center items-center">
+                {Barcode}
+                <p className="text-gray-400 text-xs">2 Via Boleto</p>
+              </div>
+              <div className="flex flex-col justify-center items-center">
+                {GraduationCap}
+                <p className="text-gray-400 text-xs">Conteudo</p>
+              </div>
+              <div className="flex flex-col justify-center items-center">
+                {BriefCase}
+                <p className="text-gray-400 text-xs">Estagio</p>
+              </div>
+              <div className="flex flex-col justify-center items-center">
+                {Book}
+                <p className="text-gray-400 text-xs">Biblioteca</p>
+              </div>
+            </div>
 
             <div>
               <form className="flex flex-col" onSubmit={login}>
