@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Atendimento, Edit, Exit } from "@/components/utility/svg";
+import { Atendimento, Edit, Exit, Search } from "@/components/utility/svg";
 
 export default function TopNav() {
   return (
@@ -18,12 +18,15 @@ export default function TopNav() {
             </div>
           </Link>
           <div className="hidden md:flex input-group">
-            <input type="text" name="" placeholder="Buscar..." />
-            <span className="input-group-btn">
-              <button className="px-3" type="button">
-                ?
-              </button>
-            </span>
+            <input
+              className="w-96"
+              type="text"
+              name=""
+              placeholder="Buscar..."
+            />
+            <button className="px-3" type="button">
+              {Search}
+            </button>
           </div>
         </div>
 
