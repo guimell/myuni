@@ -1,7 +1,8 @@
 import TopNav from "@/components/topNav";
 import { _doc } from "@/services/firebase";
 import { getDoc } from "firebase/firestore";
-import { Perfil, Atendimento } from "@/components/utility/svg";
+import { Perfil } from "@/components/utility/svg";
+import Footer from "@/components/footer";
 
 export type User = {
   curso: string;
@@ -40,6 +41,7 @@ export default async function Matriz({ params }: { params: { id: string } }) {
   return (
     <>
       <TopNav />
+
       <div className="flex radiante h-32 items-center justify-between text-white">
         <div className="p-3">
           <p className="text-xs md:text-base">MY UNIVERSIDADE</p>
@@ -49,20 +51,20 @@ export default async function Matriz({ params }: { params: { id: string } }) {
             <h1 className="font-bold text-xs md:text-base">{upperName}</h1>
             <p className="text-xs md:text-sm">
               <span className="font-bold text-xs md:text-sm">RA: </span>
-              {user?.ra}
+              <span className="text-gray-200">{user?.ra}</span>
             </p>
             <p className="text-xs md:text-sm">
               <span className="font-bold text-xs md:text-sm">Curso: </span>
-              {curso}
+              <span className="text-gray-200"> {curso}</span>
             </p>
             <div className="flex flex-row w-full  justify-end">
               <p className="text-xs md:text-sm">
                 <span className="font-bold text-xs md:text-sm">Turno: </span>
-                {Turno} &nbsp;
+                <span className="text-gray-200"> {Turno} | &nbsp;</span>
               </p>
               <p className="text-xs md:text-sm">
                 <span className="font-bold text-xs md:text-sm">Periodo: </span>
-                {user?.periodo}
+                <span className="text-gray-200">{user?.periodo}</span>
               </p>
             </div>
           </div>
@@ -71,7 +73,15 @@ export default async function Matriz({ params }: { params: { id: string } }) {
           </div>
         </div>
       </div>
-      <main></main>
+      <div className="bg-gray-200 ">
+        <p className="text-xs md:text-sm px-8 py-2">
+          <span className="text-gray-400">Você está em: </span>
+          <span className="text-gray-600 font-bold">&nbsp;Home</span>
+        </p>
+        <div className="w-full line "></div>
+      </div>
+      <main className="bg-gray-200 relative"></main>
+      <Footer />
     </>
   );
 }
