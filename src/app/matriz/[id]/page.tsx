@@ -2,7 +2,9 @@ import TopNav from "@/components/topNav";
 import { _doc } from "@/services/firebase";
 import { getDoc } from "firebase/firestore";
 import { Perfil } from "@/components/utility/svg";
+import Image from "next/image";
 import Footer from "@/components/footer";
+import logo from "public/logo2.png";
 
 export type User = {
   curso: string;
@@ -43,8 +45,8 @@ export default async function Matriz({ params }: { params: { id: string } }) {
       <TopNav />
 
       <div className="flex radiante h-32 items-center justify-between text-white">
-        <div className="p-3">
-          <p className="text-xs md:text-base">MY UNIVERSIDADE</p>
+        <div>
+          <Image src={logo} width={200} alt={"logo do site"}></Image>
         </div>
         <div className="flex flex-row p-3 text-right justify-center items-center">
           <div className="flex flex-col p-0 sm:p-3">

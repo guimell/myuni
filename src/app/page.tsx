@@ -5,6 +5,9 @@ import { getDocs, query, where } from "firebase/firestore";
 import { FormEvent, useEffect, useState } from "react";
 import { User } from "./matriz/[id]/page";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import logoMobile from "public/logoMobile.png";
+import logoGrande from "public/logo.png";
 import {
   ArrowsLeftRight,
   Barcode,
@@ -67,10 +70,15 @@ export default function Home() {
       </dialog>
 
       <div className="flex flex-row w-full h-full bghome ">
-        <div className="hidden md:flex w-1/2 h-screen bghome text-white justify-center items-center "></div>
+        <div className="hidden md:flex w-1/2 h-screen bghome text-white justify-center items-center overflow-hidden ">
+          <Image src={logoGrande} alt={"logo pagina inicial"}></Image>
+        </div>
         <div className="flex flex-col w-full md:w-1/2 h-screen  justify-center items-center bg-white bgborder">
           <div className="flex flex-col w-64 justify-center items-center">
-            <h1 className="mb-2 font-bold text-lg text-gray-500">
+            <div className="flex md:hidden  h-full w-full object-contain">
+              <Image src={logoMobile} alt={"logo pagina inicial"}></Image>
+            </div>
+            <h1 className="pb-2 font-bold text-lg text-gray-500">
               MYUNI: sua vida academica em um só lugar
             </h1>
             <div className="grid grid-cols-3 grid-rows-2 gap-3 py-4">
