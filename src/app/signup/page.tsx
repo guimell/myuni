@@ -58,56 +58,63 @@ export default function SignUp() {
 
   return (
     <main>
-      <div className="bg-red-500 border p-2 rounded-lg">
+      <div className="bg-transparent shadow-2xl border p-2 rounded-lg w-full sm:w-80">
         <form className="flex flex-col" onSubmit={creatUser}>
+          <p>Nome:</p>
           <input
             onChange={(event) => setName(event.target.value)}
             type="text"
-            placeholder="Nome:"
+            placeholder="Ex: Jesus Maria José"
             value={name}
           />
+          <p>RA:</p>
           <input
             onChange={(event) => setRa(event.target.value)}
             type="text"
-            placeholder="RA:"
+            placeholder="Ex: 123456789"
             value={ra}
           />
+          <p>Curso:</p>
           <input
             onChange={(event) => setCurso(event.target.value)}
             type="text"
-            placeholder="Curso:"
+            placeholder="Ex: Medicina"
             value={curso}
           />
+          <p>Turno</p>
           <input
             onChange={(event) => setTurno(event.target.value)}
             type="text"
-            placeholder="Turno:"
+            placeholder="Ex: Noturno"
             value={turno}
           />
+          <p>Periodo</p>
           <input
             onChange={(event) => setPeriodo(event.target.value)}
             type="text"
-            placeholder="Periodo:"
+            placeholder="Ex: 7"
             value={periodo}
           />
+          <p>Senha</p>
           <input
             onChange={(event) => setPassword(event.target.value)}
             type="password"
-            placeholder="Senha:"
+            placeholder="Ex: bola123"
             value={password}
           />
-          <button
-            className="m-1 p-1 rounded  bg-blue-700 text-white"
-            type="submit"
-          >
-            send
-          </button>
+          <div className="w-full">
+            <button
+              className=" p-1 w-full  bg-blue-700 text-white"
+              type="submit"
+            >
+              Enviar
+            </button>
+
+            <Link href={"/"}>
+              <button className="w-full">Voltar para pagina inicial</button>
+            </Link>
+          </div>
         </form>
-      </div>
-      <div className="py-10">
-        <Link href={"/"}>
-          <button>Voltar para pagina inicial</button>
-        </Link>
       </div>
     </main>
   );
