@@ -46,7 +46,7 @@ export default async function Matriz({ params }: { params: { id: string } }) {
 
       <div className="flex radiante h-32 items-center justify-between text-white">
         <div>
-          <Image src={logo} width={200} alt={"logo do site"}></Image>
+          <Image src={logo} width={150} alt={"logo do site"}></Image>
         </div>
         <div className="flex flex-row p-3 text-right justify-center items-center">
           <div className="flex flex-col p-0 sm:p-3">
