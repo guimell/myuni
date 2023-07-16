@@ -25,29 +25,6 @@ export default function Home() {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  function togglePasswordVisibility(): void {
-    const passwordInput = document.getElementById(
-      "myInput"
-    ) as HTMLInputElement | null;
-    const toggleCheckbox = document.getElementById(
-      "toggleCheckbox"
-    ) as HTMLInputElement | null;
-
-    if (!passwordInput || !toggleCheckbox) {
-      console.error("Password input or toggle checkbox not found.");
-      return;
-    }
-
-    if (toggleCheckbox.checked) {
-      passwordInput.type = "text";
-    } else {
-      passwordInput.type = "password";
-    }
-  }
-
-  // Add event listener to the toggle checkbox
-  const toggleCheckbox = document.getElementById("toggleCheckbox");
-  toggleCheckbox?.addEventListener("change", togglePasswordVisibility);
   useEffect(() => {
     const ra = localStorage.getItem("userRa");
     if (!ra) {
@@ -144,14 +121,8 @@ export default function Home() {
                   type="password"
                   placeholder="Senha:"
                   value={password}
-                  id="myInput"
                 />
-                <div>
-                  <label>
-                    <input type="checkbox" id="toggleCheckbox" />
-                    Mostrar senha
-                  </label>
-                </div>
+
                 <button type="submit">ENTRAR</button>
 
                 <div className="flex flex-row py-2 ">
