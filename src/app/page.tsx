@@ -84,7 +84,7 @@ export default function Home() {
             <div className="grid grid-cols-3 grid-rows-2 gap-3 py-4">
               <div className="flex flex-col justify-center items-center p-2">
                 {ArrowsLeftRight}
-                <p className="text-gray-400 text-xs">Rematricula</p>
+                <p className="text-gray-400 text-xs">Rematrícula</p>
               </div>
               <div className="flex flex-col justify-center items-center ">
                 {Notes}
@@ -92,15 +92,15 @@ export default function Home() {
               </div>
               <div className="flex flex-col justify-center items-center">
                 {Barcode}
-                <p className="text-gray-400 text-xs">2 Via Boleto</p>
+                <p className="text-gray-400 text-xs">2ª Via Boleto</p>
               </div>
               <div className="flex flex-col justify-center items-center">
                 {GraduationCap}
-                <p className="text-gray-400 text-xs">Conteudo</p>
+                <p className="text-gray-400 text-xs">Conteúdo</p>
               </div>
               <div className="flex flex-col justify-center items-center">
                 {BriefCase}
-                <p className="text-gray-400 text-xs">Estagio</p>
+                <p className="text-gray-400 text-xs">Estágio</p>
               </div>
               <div className="flex flex-col justify-center items-center">
                 {Book}
