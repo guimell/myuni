@@ -132,7 +132,7 @@ export default function Home() {
                   <p className="text-blue-500 text-xs pl-1 pr-1 ">|</p>
                   <Link href={"/signup"}>
                     <p className="text-blue-500 text-xs hover:underline cursor-pointer">
-                      Pré matricula
+                      Registrar
                     </p>
                   </Link>
                   <p className="text-blue-500 text-xs pl-1 pr-1 ">|</p>
