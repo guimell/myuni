@@ -13,6 +13,15 @@ export default function SignUp() {
   const [periodo, setPeriodo] = useState("");
   const [password, setPassword] = useState("");
 
+  const clearInputs = () => {
+    setName('');
+    setRa('');
+    setCurso('');
+    setTurno('');
+    setPeriodo('');
+    setPassword('');
+  };
+
   function isInputsGood(): boolean {
     let isGood = true;
     if (name === "") isGood = false;
@@ -26,7 +35,9 @@ export default function SignUp() {
   }
 
   async function creatUser(event: FormEvent) {
+    
     event.preventDefault();
+    
     console.log("creating user", name, ra, curso, turno, periodo, password);
     console.log(FirebaseConfig.db);
 
@@ -39,8 +50,12 @@ export default function SignUp() {
     ).docs;
     console.log(usersQueryDocs);
     if (usersQueryDocs.length > 0) {
-      alert("Account already exist");
+      alert("RA already exist");
       return;
+    } else {
+      alert("Account created");
+      clearInputs();
+      
     }
 
     localStorage.setItem("userRa", ra);
@@ -103,7 +118,7 @@ export default function SignUp() {
             value={password}
           />
           <div className="w-full">
-            <button
+            <button 
               className=" p-1 w-full  bg-blue-700 text-white"
               type="submit"
             >
